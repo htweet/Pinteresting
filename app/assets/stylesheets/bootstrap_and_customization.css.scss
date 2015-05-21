@@ -1,5 +1,21 @@
-$body-bg:    #DAE8E5;
-$navbar-inverse-bg: white;  
-$navbar-default-link-color:   #667E79;
+@import url(http://fonts.googleapis.com/css?family=Comfortaa:400,700,300);
+
+$body-bg:    					#F4E9E9;
+$font-family-sans-serif: 		'Comfortaa', cursive;
+$navbar-height:					45px;
+$navbar-default-bg:  			white;
+$navbar-default-brand-color:	#c0392b;
+$navbar-default-link-hover-bg:	#F4E9E9;
+$brand-primary:					#c0392b;
+$jumbotron-bg: 					white;
+$jumbotron-padding:				5px;
 
 @import 'bootstrap';
+
+.center {
+	text-align: center;
+}
+
+.navbar-brand {
+	font-weight: bold;
+}
