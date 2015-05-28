@@ -3,7 +3,7 @@
     <div class="panel panel-default">
       <div class="panel-body center">
         <%= link_to :back, class: "btn btn-danger" do %>
-        <span class="glyphicon glyphicon-step-backward"></span>Back Pins
+        <span class="glyphicon glyphicon-step-backward"></span>Back
         <% end %>
       </div>
     </div>
@@ -15,6 +15,11 @@
       <div class="panel-body">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
           <%= devise_error_messages! %>
+
+          <div class="form-group">
+            <%= f.label :name %><br />
+            <%= f.text_field :name, autofocus: true, class: "form-control" %>
+          </div>
 
           <div class="form-group">
             <%= f.label :email %><br />
