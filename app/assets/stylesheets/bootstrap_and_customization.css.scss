@@ -20,7 +20,21 @@ $jumbotron-padding:				5px;
 	font-weight: bold;
 }
 
+.panel-heading img {
+  padding: 0 0;
+ }
+
 .panel-body {
 	padding: 5px;
 
+}
+
+/* Removes padding in single pin page */
+div#image-no-pad .panel-heading {
+	padding: 0 0;
+}
+
+/* Puts border to separate comments from content */
+div#comment-area {
+	border-top: 1px solid #E2E2E2;
 }

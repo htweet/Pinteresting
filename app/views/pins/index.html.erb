@@ -1,16 +1,32 @@
+<%= render 'pages/home' unless user_signed_in? %>
 <% @pins.each do |pin| %>
-  <div class="box panel panel-default">
-    <%= image_tag pin.image.url %>
-    <div class="panel-body">
-      <%= pin.user.email if pin.user %></br>
-      <%= pin.description %>
+  <div class="row">
+    <div class="col-md-offset-2 col-md-6">
+      <div class="box panel panel-default">
+        
+        <div class="panel-body">
+          <p><strong><%= pin.user.email if pin.user %></strong></p>
+          <p><%= pin.description %></p>
+        </div>
+
+        <%= link_to image_tag(pin.image.url), pin %>
+
+        <% if pin.user == current_user %>
+          <div class="panel-footer">
+            <div class="actions">
+              <%= link_to 'Edit', edit_pin_path(pin) %>
+              <%= link_to 'Delete', pin, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+          </div>
+        <% end %>
+          
+        <div id="comment-area">
+          <div class="panel-body">
+            <p>User's Stats goes here </p>
+          </div>
+        </div>
+
       </div>
-    <div class="panel-footer">
-      <%= link_to 'Show', pin %>
-      <% if pin.user == current_user %>
-        <%= link_to 'Edit', edit_pin_path(pin) %>
-        <%= link_to 'Delete', pin, method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %>
     </div>
   </div>
 <% end %>
