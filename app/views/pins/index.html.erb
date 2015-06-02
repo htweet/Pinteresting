@@ -1,12 +1,24 @@
-<%= render 'pages/home' unless user_signed_in? %>
+<% if user_signed_in? %>
+<%= render 'layouts/main_content_menu' %>
 
 <div class="row">
-  <div class="col-md-offset-2 col-md-6">
+
+  <div class="col-md-2 left-sidebar">
+    <%= render 'layouts/left_sidebar_home' if user_signed_in? %>
+  </div>
+  <div class="sep pull-right" style="height: 610px;">
+  </div>
+  <div class="col-md-6">
     <% @pins.each do |pin| %>
       <div class="box panel panel-default">
         
+        <div class="panel-heading">
+          <p><strong><%= pin.user.name if pin.user %></strong>
+          </p>
+          <%= time_ago_in_words pin.created_at %> ago
+        </div>
+
         <div class="panel-body">
-          <p><strong><%= pin.user.name if pin.user %></strong></p>
           <p><%= pin.description %></p>
         </div>
 
@@ -28,11 +40,12 @@
         </div>
 
       </div>
+
     <% end %>
 
     <div class="center">
       <%= will_paginate @pins, renderer: BootstrapPagination::Rails %>
     </div>
-  
   </div>
 </div>
+<% end %>

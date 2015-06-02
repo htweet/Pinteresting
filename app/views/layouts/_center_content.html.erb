@@ -1,0 +1,31 @@
+<div class="panel panel-default">
+	<div class="panel-body center">
+		<%= link_to pins_path, class: "btn btn-danger" do %>
+		<span class="glyphicon glyphicon-step-backward"></span>Back
+		<% end %>
+		<% if @pin.user == current_user %>
+			<%= link_to edit_pin_path(@pin), class: "btn btn-danger" do %>
+			<span class="glyphicon glyphicon-edit"></span>Edit
+			<% end %>
+		<% end %>
+	</div>
+</div>
+
+<div class="panel panel-default">
+	<div id="image-no-pad">
+		<div class="panel-heading center">
+			<%= image_tag @pin.image.url %>
+		</div>
+	</div>
+
+	<div class="panel-body">
+		<p><strong><%= @pin.user.name if @pin.user %></strong></p>
+		<p><%= @pin.description %></p>
+	</div>
+
+	<div class="panel-footer">
+	  <div class="actions">
+	      <p>Comment Box goes here</p>
+	  </div>
+	</div>
+</div>

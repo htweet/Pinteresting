@@ -1,68 +1,19 @@
-<div class="row">
-	<div class="col-md-offset-1 col-md-7 ">
-		
-		<div class="panel panel-default">
-			<div class="panel-body center">
-				<%= link_to pins_path, class: "btn btn-danger" do %>
-				<span class="glyphicon glyphicon-step-backward"></span>Back
-				<% end %>
-				<% if @pin.user == current_user %>
-					<%= link_to edit_pin_path(@pin), class: "btn btn-danger" do %>
-					<span class="glyphicon glyphicon-edit"></span>Edit
-					<% end %>
-				<% end %>
+<%= render 'layouts/main_content_menu' if user_signed_in? %>
+<div id="single-pin">
+
+	<div class="row">
+		<div id="center-content">
+			<div class="col-md-6 col-md-offset-3">
+
+				<%= render 'layouts/center_content' %>
+			</div>
+		</div>
+	
+		<div id="right_sidebar">
+			<div class="col-md-3 col-md-offset-0">	
+				<%= render 'layouts/right_sidebar_permanent' %>
 			</div>
 		</div>
 
-			<div class="panel panel-default">
-				<div id="image-no-pad">
-					<div class="panel-heading center">
-						<%= image_tag @pin.image.url %>
-					</div>
-				</div>
-			
-			<div class="panel-body">
-				<p><strong><%= @pin.user.name if @pin.user %></strong></p>
-				<p><%= @pin.description %></p>
-			</div>
-			
-			<div class="panel-footer">
-			  <div class="actions">
-			      <p>Comment Box goes here</p>
-			  </div>
-			</div>
-
-		</div>
-	</div>
-	<div class="col-md-offset+1 col-md-3">
-		
-		<div class="panel panel-default">
-			<div class="panel-body center">
-				<%= link_to 'Back', pins_path, class: "btn btn-danger" %>
-			</div>
-		</div>
-
-		<div class="panel panel-default">
-			<div id="image-no-pad">
-				<div class="panel-heading center">
-					<%= image_tag @pin.image.url %>
-				</div>
-			</div>
-			
-			<div class="panel-body">
-				<p><strong><%= @pin.user.name if @pin.user %></strong></p>
-				<p><%= @pin.description %></p>
-				<% if @pin.user == current_user %>
-					<%= link_to 'Edit', edit_pin_path(@pin) %>
-				<% end %>
-			</div>
-			
-			<div class="panel-footer">
-			  <div class="actions">
-			      <p>Comment Box goes here</p>
-			  </div>
-			</div>
-		</div>
-		
 	</div>
 </div>

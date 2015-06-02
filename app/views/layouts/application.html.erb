@@ -1,21 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Pinteresting</title>
-	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-	<%= csrf_meta_tags %>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
+	<head>
+		<title>Social Network</title>
+		<link type="text/css" rel="stylesheet" href="normalize.css" />
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<%= csrf_meta_tags %>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
 
-	<%= render 'layouts/header' %>
+		<div class="container">
+		<%= render 'pages/top_users' %>
+		<%= render 'layouts/header' %>
+		<%= render 'pages/home' unless user_signed_in? %>
+			<% flash.each do |name, msg| %>
+			<%= content_tag(:div, msg, class: "alert alert-info") %>
+			<% end %>
+		    <%= yield %>
+		</div>
+
+	</body>
+
 	<div class="container">
-		<% flash.each do |name, msg| %>
-		<%= content_tag(:div, msg, class: "alert alert-info") %>
-		<% end %>
-	    <%= yield %>
+		<%= render 'layouts/footer' %>
 	</div>
-
-</body>
+	
 </html>
