@@ -11,19 +11,17 @@
 	<body>
 
 		<div class="container">
-		<%= render 'pages/top_users' %>
-		<%= render 'layouts/header' %>
-		<%= render 'pages/home' unless user_signed_in? %>
-			<% flash.each do |name, msg| %>
-			<%= content_tag(:div, msg, class: "alert alert-info") %>
-			<% end %>
-		    <%= yield %>
+			<%= render 'layouts/header' %>
+			<%= render 'pages/top_users' if user_signed_in? %>
+			<%= render 'pages/home' unless user_signed_in? %>
+				<% flash.each do |name, msg| %>
+				<%= content_tag(:div, msg, class: "alert alert-info") %>
+				<% end %>
+			<%= yield %>
 		</div>
 
 	</body>
 
-	<div class="container">
 		<%= render 'layouts/footer' %>
-	</div>
 	
 </html>

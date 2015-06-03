@@ -109,16 +109,6 @@ div#comment-area {
 	margin-top: -90px;
 }
 
-/* index left menu border stroke */
-.sep {
-	background: #121212;
-	box-shadow: 1px 0 #2a2a2a;
-	display: inline-block;
-	margin: 20px 0;
-	vertical-align: middle;
-	width: 4px;
-}
-
 .jumbo-pad {
   padding-top: 50px;
 }
@@ -135,7 +125,7 @@ div#comment-area {
   text-transform: uppercase;
 }
 
-.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+.nav-tabs > li .active > a, .nav-tabs > li .active > a:hover, .nav-tabs > li .active > a:focus {
   color: #FFFFFF;
   background-color: #E87171;
   border-bottom: 5px solid rgb(255, 203, 203);
@@ -146,10 +136,20 @@ div#comment-area {
   margin-top: 5px;
 }
 
-.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+.nav-pills > li.active > a, .nav-pills > li .active > a:hover, .nav-pills > li .active > a:focus {
     color: #FFFFFF;background-color: #E87171;
 }
 
-.sep.pull-right {
+.sep .pull-left {
   float: left !important;
+}
+
+/* index left menu border stroke */
+.sep {
+  background: #121212;
+  box-shadow: 1px 0 #2a2a2a;
+  display: inline-block;
+  margin: 20px 0;
+  vertical-align: middle;
+  width: 4px;
 }

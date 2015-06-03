@@ -1,5 +1,6 @@
 <ul class="nav nav-tabs">
-  <li role="presentation" class="active"><a href="#">Home</a></li>
+  <li><%= link_to "Home", root_path, class: "active", role: "presentation" %></li>
+  <li><%= link_to "Status", statuses_path, role: "presentation" %></li>
   <li role="presentation"><a href="#">Images</a></li>
   <li role="presentation"><a href="#">Videos</a></li>
   <li role="presentation"><a href="#">Links</a></li>
